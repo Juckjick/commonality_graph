@@ -1,6 +1,6 @@
 # Code Appendix for Evaluation
 
-## Leveraging Commonality across Multiple Tissue Slices for Enhanced Whole Slide Image Classification Using Graph Convolutional Networks
+Leveraging Commonality across Multiple Tissue Slices for Enhanced Whole Slide Image Classification Using Graph Convolutional Networks
 Ref: Submission ID 37c9a612-3247-4768-b8d0-6e71519d2c5f
 
 ## Pre-requisites
@@ -16,19 +16,19 @@ Ref: Submission ID 37c9a612-3247-4768-b8d0-6e71519d2c5f
 
 ## Data Preparation
 
-First, we cut a whole slide image (WSI) into tiles with a size of 256*256 pixels, and then adapt a denoising algorithm from [this paper](https://www.nature.com/articles/s41598-022-05001-8) to get rid of background and noisy patches. Furthermore, we generate a Comma Separated Value (CSV) file to list tile information, which is described in the following table.
+First, we tile a whole slide image (WSI) into many patches with a size of 256*256 pixels, and remove background (white) and noisy patches. Also, we generate a Comma Separated Value (CSV) file to list patch information described in a following table.
 
 | columns | descriptions | value |
 | --- | --- | --- |
-| organ | an organ type of a tile | ‘colon’ or ‘stomach’ |
+| organ | an organ type of a patch | ‘colon’ or ‘stomach’ |
 | subset | a train-val-test split type | ‘train’ or  ‘val’ or ‘test’ |
 | condition | a slide class | 'D’ or ‘M’ or ‘N’ |
 | label | a slide label mapping from the condition column:
 0, 1, and 2 are for D, M, and N, respectively. | 0 or 1 or 2 |
 | slide_name | a name of a slide | string |
-| img_path | a path to tile image. For more detail, tiles are named in this form: “…/slide_name-row_column.jpg” | string |
+| img_path | a path to patch image. For more detail, patches are named in this form: “…/slide_name-row_column.jpg” | string |
 
-The samples of tile information (CSV file) are as follows:
+Samples of patch information (CSV file) are as follows:
 
 | organ | subset | condition | label | slide_name | img_path |
 | --- | --- | --- | --- | --- | --- |
@@ -39,11 +39,11 @@ The samples of tile information (CSV file) are as follows:
 
 ## Feature Extraction
 
-The tile’s features are extracted. The input data is the CSV file of tile information from the previous step. And, the tile’s features are the output as a pickle (pkl) file. Due to the restriction of sharing the raw dataset, we cannot provide the tile information. However, we provide the output of this step in `files/features`. Although you cannot run this step, we offer the code (`feature_extractor.py`) for a supplementary. 
+Patch features are extracted in this step. An input data is the patch information (csv file) from previous step. And, the patch features are the output as a pickle (pkl) file. Due to the restriction of sharing the raw dataset, we cannot provide the tile information. However, we provide the output of this step in `files/features`. Although you cannot run this step, we offer the code (`feature_extractor.py`) for a supplementary. Noted that a denoising algorithm from [this paper](https://www.nature.com/articles/s41598-022-05001-8) is used to train the feature extractor.
 
 ## Graph Construction
 
-We construct a commonality graph by leveraging common patterns across slices from their extracted features. The outputs are commonality graphs stored in `files/graphs`. 
+Then, we construct a commonality graph by leveraging common patterns across slices from their extracted features. The outputs are commonality graphs stored in `files/graphs`. 
 
 To run this step, you can follow this command:
 
@@ -53,7 +53,7 @@ $ python graph_extractor.py
 
 ## Training and testing the model
 
-After generating graphs from the previous step, you can run the experiment with our proposed data representative. The code for training and testing graph convolutional neural networks (GCNs) are provided. The input graphs are from `files/graphs`. The outputs of this step are the trained models and their performances in terms of accuracy and AUROC. In addition, the trained models are stored in `models/trained`.
+After generating graphs from previous step, you can run the experiment with our proposed data representative. The code for training and testing graph convolutional neural networks (GCNs) are provided. The input graphs are from `files/graphs`. The outputs of this step are the trained models and their performances in terms of accuracy and AUROC. In addition, the trained models are stored in `models/trained`.
 
 To run this step, you can follow this command:
 
