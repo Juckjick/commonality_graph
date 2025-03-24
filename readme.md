@@ -1,6 +1,7 @@
-# Leveraging Commonality across Multiple Tissue Slices for Enhanced Whole Slide Image Classification Using Graph Convolutional Networks - Code Appendix for evaluation
+# Code Appendix for Evaluation
 
-## Ref: Submission ID 37c9a612-3247-4768-b8d0-6e71519d2c5f
+## Leveraging Commonality across Multiple Tissue Slices for Enhanced Whole Slide Image Classification Using Graph Convolutional Networks
+Ref: Submission ID 37c9a612-3247-4768-b8d0-6e71519d2c5f
 
 ## Pre-requisites
 
