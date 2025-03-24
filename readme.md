@@ -39,11 +39,11 @@ The samples of tile information (CSV file) are as follows:
 
 ## Feature Extraction
 
-The tile’s features are extracted. The input data is the CSV file of tile information from the previous step. And, the tile’s features are the output as a pickle (pkl) file. Due to the restriction of sharing the raw dataset, we cannot provide the tile information. However, we provide the output of this step in `files/features`. Although you cannot run this step, we offer the code (`feature_extracr.py`) for a supplementary. 
+The tile’s features are extracted. The input data is the CSV file of tile information from the previous step. And, the tile’s features are the output as a pickle (pkl) file. Due to the restriction of sharing the raw dataset, we cannot provide the tile information. However, we provide the output of this step in `files/features`. Although you cannot run this step, we offer the code (`feature_extractor.py`) for a supplementary. 
 
 ## Graph Construction
 
-We construct a three-dimensional (3D) graph using the features extracted from the previous step. The outputs are 3D graphs stored in `files/graphs`. 
+We construct a commonality graph by leveraging common patterns across slices from their extracted features. The outputs are commonality graphs stored in `files/graphs`. 
 
 To run this step, you can follow this command:
 
@@ -58,5 +58,5 @@ After generating graphs from the previous step, you can run the experiment with 
 To run this step, you can follow this command:
 
 ```jsx
-$ python main_3DGCN.py
+$ python main_commonality.py
 ```
