@@ -1,16 +1,17 @@
-# 3D Graph-Based Classification of  Histopathological Whole Slide Images (#12754) - Code Appendix
+# Leveraging Commonality across Multiple Tissue Slices for Enhanced Whole Slide Image Classification Using Graph Convolutional Networks - Code Appendix for evaluation
+
+## Ref: Submission ID 37c9a612-3247-4768-b8d0-6e71519d2c5f
 
 ## Pre-requisites
 
-- Python (3.6.15)
-- Pytorch (1.8.0=py3.6_cuda10.2_cudnn7_0)
-- Pytorch Geometric (1.7.0)
-- torchmetrics (0.9.3)
-- NetworkX (2.5.1)
-- Numpy (1.19.5)
-- Pandas (1.1.5)
-- Pillow; PIL (8.3.2)
-- tqdm (4.62.3)
+- Python
+- Pytorch
+- Pytorch Geometric
+- torchmetrics
+- NetworkX
+- Numpy
+- Pandas
+- Pillow; PIL
 
 ## Data Preparation
 
