@@ -85,9 +85,9 @@ def training_model(train, val, test, model_save_path):
         if (epoch+1)%10 == 0:
             print(f"epoch: {epoch:03d}, train acc: {train_acc:.4f}, val acc: {val_acc:.4f}, val loss: {val_loss:.4f}")
 
-    # # (optional) passing the saved model and test data to measure the accuracy of the model.
-    # test_acc = GCN.test(hidden_channels, num_classes, test_loader, model_save_path)
-    # print(f'Test Acc: {test_acc:.4f}')
+    # (optional) passing the saved model and test data to measure the accuracy of the model.
+    test_acc = GCN.test(hidden_channels, num_classes, test_loader, model_save_path)
+    print(f'Test Acc: {test_acc:.4f}')
 
 def test_model(organ, seed_num, slide_names, slide_gts, all_graphs, model_path):
     preds = []

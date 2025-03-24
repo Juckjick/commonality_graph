@@ -41,8 +41,6 @@ def wsi_generator(conf_list, label_list, loc_list, slide_label):
 
     return data
 
-
-
 # functions for slice-level graph generation
 def find_centroids(components, location_list):  
     centroids = []
@@ -107,8 +105,6 @@ def slg_generator(ws_graph):
     slice_lv_graphs = get_sl_graphs(components, location_list)
 
     return slice_lv_graphs
-
-
 
 # functions for commonality graph construction
 def DMN_top_label_conf_extraction(features):
