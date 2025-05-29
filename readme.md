@@ -1,7 +1,4 @@
-# Code Appendix for Evaluation
-
-Leveraging Commonality across Multiple Tissue Slices for Enhanced Whole Slide Image Classification Using Graph Convolutional Networks
-Ref: Submission ID 37c9a612-3247-4768-b8d0-6e71519d2c5f
+# Leveraging Commonality across Multiple Tissue Slices for Enhanced Whole Slide Image Classification Using Graph Convolutional Networks
 
 ## Pre-requisites
 
@@ -23,10 +20,9 @@ First, we tile a whole slide image (WSI) into many patches with a size of 256*25
 | organ | an organ type of a patch | ‘colon’ or ‘stomach’ |
 | subset | a train-val-test split type | ‘train’ or  ‘val’ or ‘test’ |
 | condition | a slide class | 'D’ or ‘M’ or ‘N’ |
-| label | a slide label mapping from the condition column:
-0, 1, and 2 are for D, M, and N, respectively. | 0 or 1 or 2 |
+| label | a slide label mapping from the condition column: 0, 1, and 2 are for D, M, and N, respectively. | 0 or 1 or 2 |
 | slide_name | a name of a slide | string |
-| img_path | a path to patch image. For more detail, patches are named in this form: “…/slide_name-row_column.jpg” | string |
+| img_path | a path to patch image. For more details, patches are named in this form: “…/slide_name-row_column.jpg” | string |
 
 Samples of patch information (CSV file) are as follows:
 
